@@ -6,8 +6,21 @@ import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import { Ecommerce } from "./pages";
 import "./App.css";
 
+import { useStateContext } from './contexts/ContextProvider';
+
 const App = () => {
-  const activeMenu  = true;
+  const {
+    // setCurrentColor,
+    // setCurrentMode,
+    // currentMode,
+    activeMenu,
+    // currentColor,
+    // themeSettings,
+    // setThemeSettings,
+  } = useStateContext();
+
+
+  // const activeMenu  = true;
   // const activeMenu = false;
   return (
     <div>

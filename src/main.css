@@ -565,6 +565,10 @@ video {
   position: fixed;
 }
 
+.absolute{
+  position: absolute;
+}
+
 .relative{
   position: relative;
 }
@@ -575,6 +579,14 @@ video {
 
 .bottom-4{
   bottom: 1rem;
+}
+
+.right-2{
+  right: 0.5rem;
+}
+
+.top-2{
+  top: 0.5rem;
 }
 
 .m-2{
@@ -597,12 +609,20 @@ video {
   margin-top: 2.5rem;
 }
 
+.ml-1{
+  margin-left: 0.25rem;
+}
+
 .block{
   display: block;
 }
 
 .flex{
   display: flex;
+}
+
+.inline-flex{
+  display: inline-flex;
 }
 
 .grid{
@@ -623,6 +643,14 @@ video {
 
 .h-screen{
   height: 100vh;
+}
+
+.h-2{
+  height: 0.5rem;
+}
+
+.h-8{
+  height: 2rem;
 }
 
 .min-h-screen{
@@ -647,6 +675,18 @@ video {
 
 .w-full{
   width: 100%;
+}
+
+.w-2{
+  width: 0.5rem;
+}
+
+.w-8{
+  width: 2rem;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
 
 .resize{
@@ -715,6 +755,14 @@ video {
   padding: 0.75rem;
 }
 
+.p-2{
+  padding: 0.5rem;
+}
+
+.p-1{
+  padding: 0.25rem;
+}
+
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -750,8 +798,16 @@ video {
   line-height: 1.75rem;
 }
 
+.text-14{
+  font-size: 14px;
+}
+
 .font-extrabold{
   font-weight: 800;
+}
+
+.font-bold{
+  font-weight: 700;
 }
 
 .uppercase{
@@ -831,12 +887,25 @@ video {
     position: static;
   }
 
+  .md\:mx-6{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
   .md\:ml-3{
     margin-left: 0.75rem;
   }
 
   .md\:ml-72{
     margin-left: 18rem;
+  }
+
+  .md\:ml-6{
+    margin-left: 1.5rem;
+  }
+
+  .md\:mr-6{
+    margin-right: 1.5rem;
   }
 
   .md\:hidden{

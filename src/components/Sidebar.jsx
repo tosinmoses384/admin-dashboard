@@ -5,17 +5,31 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { links } from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
+  const { 
+    // currentColor, 
+    activeMenu, 
+    setActiveMenu, 
+    screenSize 
+  } =
+    useStateContext();
+
   const handleCloseSideBar = () => {
     console.log("handle click function");
 
     // if (activeMenu !== undefined && screenSize <= 900) {
     //   setActiveMenu(false);
     // }
+
+    if (activeMenu && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+
   };
 
-  const activeMenu = true;
+  // const activeMenu = true;
 
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2";
@@ -31,6 +45,7 @@ const Sidebar = () => {
             <Link
               to="/"
               onClick={handleCloseSideBar}
+              // onClick={setActiveMenu(false)}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
               <SiShopware /> <span>Shoppy</span>
@@ -39,7 +54,9 @@ const Sidebar = () => {
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => console.log("set active menu")}
+                onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+
+                // onClick={() => console.log("set active menu")}
                 // onClick={() => setActiveMenu(!activeMenu)}
 
                 // style={{ color: currentColor }}
@@ -60,7 +77,6 @@ const Sidebar = () => {
                     to={`/${link.name}`}
                     key={link.name}
                     onClick={handleCloseSideBar}
-
                     // style={({ isActive }) => ({
                     //   backgroundColor: isActive ? currentColor : "",
                     // })}
