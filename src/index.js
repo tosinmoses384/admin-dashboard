@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./main.css";
 
 import App from "./App";
@@ -13,11 +14,3 @@ ReactDOM.render(
 
   document.getElementById("root")
 );
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <ContextProvider>
-//       <App />
-//     </ContextProvider>
-//   </React.StrictMode>,
-//   document.getElementById('root'),
-// );

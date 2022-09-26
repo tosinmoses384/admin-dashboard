@@ -29,7 +29,6 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 const Navbar = () => {
   const {
-    // currentColor,
     activeMenu,
     setActiveMenu,
     handleClick,
@@ -37,7 +36,7 @@ const Navbar = () => {
     setScreenSize,
     screenSize,
 
-    setIsClicked
+    setIsClicked,
   } = useStateContext();
 
   useEffect(() => {
@@ -58,45 +57,39 @@ const Navbar = () => {
     }
   }, [screenSize]);
 
-  // const handleActiveMenu = () => setActiveMenu(!activeMenu);
-
   return (
-    <div 
-    className="flex justify-between p-2 md:mx-6 relative"
-    // className="flex justify-between p-2 md:ml-6 md:mr-6 relative"
-    >
-      <NavButton
-        title="Menu"
-        customFunc={() => setActiveMenu(prevActiveMenu => !prevActiveMenu)  }
-        // customFunc={handleActiveMenu}
-        // color={currentColor}
-        color='blue'
-        icon={<AiOutlineMenu />}
-      />
+    <div className="flex justify-between p-2 md:mx-6 relative">
+      {/* THIS IS A TEMPORAL FIX */}
+      <div></div>
+
+      {/* Search*/}
+      <div className="relative mb-4">
+        <input
+          style={{
+            background: "#E8EDF1",
+            borderRadius: "7px",
+          }}
+          type="text"
+          placeholder="Search anything..."
+          className="w-full p-2 px-4 text-center text-white border border-zinc-600 placeholder:text-xs placeheolder:text-center md:text-left placeholder:md:text-left focus:outline-none"
+        />
+        <img
+          style={{
+            top: "1rem",
+            right: "1rem",
+          }}
+          src="./svg/search.svg"
+          alt="user-profile"
+          className="absolute right-12 top-12 w-4 h-4"
+        />
+      </div>
 
       <div className="flex">
         <NavButton
-          title="Cart"
-          customFunc={() => handleClick("cart")}
-          // color={currentColor}
-          color='blue'
-          icon={<FiShoppingCart />}
-        />
-        <NavButton
-          title="Chat"
-          dotColor="#03C9D7"
-          customFunc={() => handleClick("chat")}
-          color='blue'
-          // color={currentColor}
-          icon={<BsChatLeft />}
-        />
-        <NavButton
           title="Notification"
           dotColor="#03C9D7"
-          // dotColor="rgb(254, 201, 15)"
           customFunc={() => handleClick("notification")}
-          color='blue'
-          // color={currentColor}
+          color="blue"
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content="Profile" position="BottomCenter">
@@ -105,24 +98,14 @@ const Navbar = () => {
             onClick={() => handleClick("userProfile")}
           >
             <img
+              src="./jpg/person.jpg"
+              alt="user-profile"
               className="rounded-full w-8 h-8"
-              src={avatar}
-              // alt="user-profile"
             />
-            <p>
-              <span className="text-gray-400 text-14">Hi,</span>{" "}
-              <span className="text-gray-400 font-bold ml-1 text-14">
-                Michael
-              </span>
-            </p>
+
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
-
-        {isClicked.cart && <Cart />}
-        {isClicked.chat && <Chat />}
-        {isClicked.notification && <Notification />}
-        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );
